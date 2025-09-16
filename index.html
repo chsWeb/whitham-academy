@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Whitham Academy • Classical & Waldorf-Inspired K–12</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description"
+            content="Whitham Academy is a classical, Waldorf-inspired K–12 homeschool academy focused on truth, beauty, and goodness through rigorous academics and the arts.">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Merriweather:wght@400;700&display=swap"
+            rel="stylesheet">
+        <style>
+            /* Root palette and typography */
+            :root {
+                --ink: #1d2330;
+                --ink-soft: #3e4660;
+                --sky: #f3f6fb;
+                --paper: #ffffff;
+                --accent: #2a4b8d;
+                --accent-2: #7b9bd6;
+                --success: #2f7b4a;
+            }
+
+            /* Base element resets */
+            html,
+            body {
+                height: 100%;
+            }
+
+            /* Body defaults */
+            body {
+                margin: 0;
+                background: var(--sky);
+                color: var(--ink);
+                font-family: 'Merriweather', serif;
+                line-height: 1.6;
+                -webkit-font-smoothing: antialiased;
+                text-rendering: optimizeLegibility;
+            }
+
+            /* Layout containers */
+            .wrap {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            /* Skip link for accessibility */
+            .skip-link {
+                position: absolute;
+                top: -40px;
+                left: 0;
+                background: var(--accent);
+                color: #fff;
+                padding: 8px 12px;
+                text-decoration: none;
+            }
+
+            .skip-link:focus {
+                top: 0;
+            }
+
+            /* Header */
+            header {
+                background: var(--paper);
+                border-bottom: 1px solid #e8eef7;
+            }
+
+            .brand {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 16px 0;
+            }
+
+            .logo {
+                width: 40px;
+                height: 40px;
+                border-radius: 8px;
+                background: linear-gradient(135deg, var(--accent), var(--accent-2));
+                display: inline-block;
+            }
+
+            .brand h1 {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 1.5rem;
+                letter-spacing: .3px;
+                margin: 0;
+            }
+
+            nav ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                gap: 18px;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                text-decoration: none;
+                color: var(--ink);
+                font-weight: 700;
+                font-family: 'Cormorant Garamond', serif;
+            }
+
+            nav a:hover,
+            nav a:focus {
+                color: var(--accent);
+            }
+
+            /* Hero */
+            .hero {
+                background: var(--paper);
+                padding: 48px 0 36px;
+                border-bottom: 1px solid #e8eef7;
+                text-align: center;
+            }
+
+            .hero h2 {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 2.2rem;
+                line-height: 1.2;
+                margin: 0 0 12px;
+                color: var(--accent);
+            }
+
+            .hero p {
+                margin: 0 auto 18px;
+                max-width: 780px;
+                color: var(--ink-soft);
+            }
+
+            .btn {
+                display: inline-block;
+                padding: 10px 16px;
+                background: var(--accent);
+                color: #fff;
+                text-decoration: none;
+                border-radius: 8px;
+                font-weight: 700;
+            }
+
+            .btn:hover,
+            .btn:focus {
+                background: #203a6d;
+            }
+
+            /* Section blocks */
+            section {
+                padding: 36px 0;
+            }
+
+            section h3 {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 1.6rem;
+                margin: 0 0 10px;
+                color: var(--ink);
+            }
+
+            .cards {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                gap: 16px;
+            }
+
+            .card {
+                background: var(--paper);
+                border: 1px solid #e8eef7;
+                border-radius: 12px;
+                padding: 18px;
+            }
+
+            .kicker {
+                font-size: .85rem;
+                text-transform: uppercase;
+                letter-spacing: .08em;
+                color: var(--accent);
+                margin-bottom: 6px;
+                display: block;
+            }
+
+            /* Definition list for quick facts */
+            .facts {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .facts dt {
+                font-weight: 700;
+            }
+
+            .facts dd {
+                margin: 0;
+                color: var(--ink-soft);
+            }
+
+            /* Footer */
+            footer {
+                background: var(--paper);
+                border-top: 1px solid #e8eef7;
+                color: var(--ink-soft);
+                padding: 24px 0 48px;
+                font-size: .95rem;
+            }
+
+            .legal {
+                font-size: .85rem;
+                color: #6a728b;
+                margin-top: 8px;
+            }
+
+            /* Small screen nav */
+            .nav-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .menu-btn {
+                display: none;
+                appearance: none;
+                border: 1px solid #e0e6f2;
+                background: var(--paper);
+                padding: 8px 10px;
+                border-radius: 8px;
+                font-weight: 700;
+            }
+
+            @media (max-width:768px) {
+                nav ul {
+                    display: none;
+                }
+
+                nav ul.open {
+                    display: flex;
+                    width: 100%;
+                    margin-top: 12px;
+                }
+
+                .menu-btn {
+                    display: inline-block;
+                }
+
+                .hero h2 {
+                    font-size: 1.9rem;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <a class="skip-link" href="#main">Skip to content</a>
+
+        <header>
+            <div class="wrap">
+                <div class="nav-row">
+                    <div class="brand">
+                        <!-- Inline SVG logo -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 69 58" width="42" height="36"
+                            aria-hidden="true" style="flex-shrink:0;">
+                            <path
+                                d="M41.1626 35.1182C37.5212 30.6838 36.6552 24.5895 38.9169 19.3162L46.8965 0.711021L65.1807 22.9777C68.822 27.4121 69.6881 33.5064 67.4264 38.7797L59.4468 57.3849L41.1626 35.1182Z"
+                                fill="#8EC7FD" />
+                            <path
+                                d="M35.4119 27.6632L47.0731 0.474274L51.7968 23.2192C52.6196 27.1812 52.2055 31.3003 50.6105 35.0192L41.3997 56.4949L35.4119 27.6632Z"
+                                fill="#0373D0" />
+                            <path
+                                d="M22.5749 35.4886C18.9336 31.0542 18.0675 24.9599 20.3292 19.6866L28.3089 1.08141L46.5931 23.3481C50.2344 27.7825 51.1005 33.8768 48.8388 39.1501L40.8591 57.7553L22.5749 35.4886Z"
+                                fill="#008AFC" />
+                            <path
+                                d="M16.6477 28.2703L28.3089 1.08141L33.0326 23.8263C33.8554 27.7883 33.4413 31.9074 31.8463 35.6263L22.6355 57.102L16.6477 28.2703Z"
+                                fill="#0548E0" />
+                            <path
+                                d="M4.31589 35.0931C0.674564 30.6587 -0.191517 24.5644 2.07019 19.2911L10.0498 0.685937L28.334 22.9526C31.9754 27.387 32.8414 33.4813 30.5797 38.7546L22.6001 57.3598L4.31589 35.0931Z"
+                                fill="#0C55FC" />
+                        </svg>
+
+                        <!-- Wordmark -->
+                        <h1>Whitham Academy</h1>
+                    </div>
+
+                    <button class="menu-btn" aria-controls="primary-nav" aria-expanded="false">Menu</button>
+
+                    <nav aria-label="Primary">
+                        <ul id="primary-nav">
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#academics">Academics</a></li>
+                            <li><a href="#admissions">Admissions</a></li>
+                            <li><a href="#calendar">Calendar</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main id="main">
+            <section class="hero">
+                <div class="wrap">
+                    <h2>Classical & Waldorf-Inspired Education for K–12</h2>
+                    <p>We partner with families to cultivate truth, beauty, and goodness through rigorous academics,
+                        rich arts, and habit-forming practices that nourish the whole child.</p>
+                    <a class="btn" href="#admissions">Begin Admissions</a>
+                </div>
+            </section>
+
+            <section id="about">
+                <div class="wrap">
+                    <span class="kicker">Who We Are</span>
+                    <h3>About Whitham Academy</h3>
+                    <p>Whitham Academy is an independent homeschool academy blending the great-books tradition of
+                        classical learning with Waldorf-inspired artistry and rhythm. Students encounter literature,
+                        mathematics, science, and history alongside handwork, music, movement, and nature study.</p>
+                    <div class="cards" style="margin-top:14px">
+                        <article class="card">
+                            <h4 style="margin-top:0">Mission</h4>
+                            <p>To form wise, virtuous, and joyful learners who think clearly, communicate gracefully,
+                                and serve generously.</p>
+                        </article>
+                        <article class="card">
+                            <h4 style="margin-top:0">Pedagogy</h4>
+                            <p>Classical trivium & quadrivium meet Waldorf main-lesson blocks, storytelling, and the
+                                arts — with developmentally appropriate technology.</p>
+                        </article>
+                        <article class="card">
+                            <h4 style="margin-top:0">Partnership</h4>
+                            <p>Parent-led instruction supported by our scope & sequence, assessments, and mentoring.
+                                (Affiliated instructor with Glow Association.)</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="academics">
+                <div class="wrap">
+                    <span class="kicker">Programs</span>
+                    <h3>Academics & Curriculum</h3>
+                    <div class="cards">
+                        <article class="card">
+                            <h4 style="margin-top:0">Lower School (K–5)</h4>
+                            <ul>
+                                <li>Foundations: phonics, copywork, mental math, form drawing</li>
+                                <li>Arts & handwork: watercolor, recorder, knitting, nature journals</li>
+                                <li>Main lessons in storytelling, fables, early civilizations</li>
+                            </ul>
+                        </article>
+                        <article class="card">
+                            <h4 style="margin-top:0">Middle School (6–8)</h4>
+                            <ul>
+                                <li>Logic, grammar, composition, Latin</li>
+                                <li>Pre-algebra/algebra, lab-based science, biography blocks</li>
+                                <li>Studio arts, strings/choral, woodworking</li>
+                            </ul>
+                        </article>
+                        <article class="card">
+                            <h4 style="margin-top:0">Upper School (9–12)</h4>
+                            <ul>
+                                <li>Rhetoric, great books seminars, advanced mathematics</li>
+                                <li>Natural sciences with labs, history through primary sources</li>
+                                <li>Senior thesis & service practicum</li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="admissions">
+                <div class="wrap">
+                    <span class="kicker">Apply</span>
+                    <h3>Admissions & Enrollment</h3>
+                    <p><strong>2025–2026 priority window:</strong> Applications reviewed on a rolling basis with family
+                        interviews. Whitham Academy supports home-education in compliance with state law; guardians
+                        retain status as the primary instructor of record.</p>
+                    <dl class="facts" style="margin-top:10px">
+                        <div>
+                            <dt>Grades</dt>
+                            <dd>K–12 (combined-age lessons with guided differentiation)</dd>
+                        </div>
+                        <div>
+                            <dt>Location</dt>
+                            <dd>City, ST (hybrid at-home + local meet-ups & field lessons)</dd>
+                        </div>
+                        <div>
+                            <dt>Contact for Admissions</dt>
+                            <dd><a href="mailto:admissions@whithamacademy.org">admissions@whithamacademy.org</a></dd>
+                        </div>
+                    </dl>
+                    <p style="margin-top:12px">
+                        <a class="btn"
+                            href="mailto:admissions@whithamacademy.org?subject=Whitham%20Academy%20Admissions">Request
+                            an Admissions Call</a>
+                    </p>
+                </div>
+            </section>
+
+            <section id="calendar">
+                <div class="wrap">
+                    <span class="kicker">Calendar</span>
+                    <h3>Annual Rhythm</h3>
+                    <div class="cards">
+                        <article class="card">
+                            <h4 style="margin-top:0">Key Dates</h4>
+                            <ul>
+                                <li>First Term: Late August – October</li>
+                                <li>Second Term: November – January</li>
+                                <li>Third Term: February – April</li>
+                                <li>Fourth Term: May – June</li>
+                            </ul>
+                        </article>
+                        <article class="card">
+                            <h4 style="margin-top:0">Weekly Flow</h4>
+                            <ul>
+                                <li>Main Lesson (Mon–Thu): Literature/History/Science blocks</li>
+                                <li>Friday: Nature study, service, performances, field lessons</li>
+                            </ul>
+                        </article>
+                        <article class="card">
+                            <h4 style="margin-top:0">Assessments</h4>
+                            <ul>
+                                <li>Narrative evaluations, portfolios, and periodic benchmarks</li>
+                                <li>High-school: transcripts, course descriptions, counselor letters</li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <div class="wrap">
+                    <span class="kicker">Get in Touch</span>
+                    <h3>Contact</h3>
+                    <p>Email us at <a href="mailto:info@whithamacademy.org">info@whithamacademy.org</a> or call <a
+                            href="tel:+1-555-555-1212">(555) 555-1212</a>.</p>
+                    <p class="legal"><strong>Non-Discrimination:</strong> Whitham Academy admits students of any race,
+                        color, national and ethnic origin to all rights, privileges, programs, and activities generally
+                        accorded or made available to students at the school.</p>
+                    <p class="legal"><strong>Privacy:</strong> We respect family privacy and maintain student records
+                        securely. Records are released only with written guardian consent or as required by law.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="wrap">
+                <div>© <span id="yr"></span> Whitham Academy. All rights reserved.</div>
+                <div class="legal">Instruction provided under a home-education model; families remain responsible for
+                    compliance with applicable laws and regulations.</div>
+            </div>
+        </footer>
+
+        <script>
+            // Mobile nav toggle
+            (function () {
+                const btn = document.querySelector('.menu-btn');
+                const list = document.getElementById('primary-nav');
+                if (!btn || !list) return;
+                btn.addEventListener('click', function () {
+                    const open = list.classList.toggle('open');
+                    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                });
+            })();
+
+            // Footer year
+            document.getElementById('yr').textContent = new Date().getFullYear();
+        </script>
+
+        <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"EducationalOrganization",
+    "name":"Whitham Academy",
+    "url":"https://whithamacademy.org",
+    "email":"info@whithamacademy.org",
+    "description":"Classical, Waldorf-inspired K–12 homeschool academy focused on rigorous academics, the arts, and character.",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"City",
+      "addressRegion":"ST",
+      "addressCountry":"US"
+    },
+    "sameAs":[]
+  }
+  </script>
+    </body>
+
+</html>

@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Whitham Academy • Classical & Waldorf-Inspired K–12</title>
+        <title>Whitham Academy - Classical & Waldorf-Inspired K–12</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description"
             content="Whitham Academy is a classical, Waldorf-inspired K–12 homeschool academy focused on truth, beauty, and goodness through rigorous academics and the arts.">
@@ -247,6 +247,114 @@
 
                 .hero h2 {
                     font-size: 1.9rem;
+                }
+            }
+
+            /* ------------------------- */
+            /* Contact form: container   */
+            /* ------------------------- */
+            #contact-form {
+                background: var(--paper);
+                border: 1px solid #e8eef7;
+                border-radius: 12px;
+                padding: 18px;
+                max-width: 720px;
+                margin: 12px auto 0;
+            }
+
+            /* ------------------------- */
+            /* Rows + layout             */
+            /* ------------------------- */
+            #contact-form .form-row {
+                display: grid;
+                gap: 8px;
+                margin-bottom: 14px;
+            }
+
+            /* ------------------------- */
+            /* Labels                    */
+            /* ------------------------- */
+            #contact-form label {
+                font-family: 'Cormorant Garamond', serif;
+                font-weight: 700;
+                letter-spacing: .2px;
+                color: var(--ink);
+            }
+
+            /* ------------------------- */
+            /* Inputs + textarea         */
+            /* ------------------------- */
+            #contact-form input[type="text"],
+            #contact-form input[type="email"],
+            #contact-form textarea {
+                appearance: none;
+                width: 100%;
+                font: 400 1rem/1.5 'Merriweather', serif;
+                color: var(--ink);
+                background: #fff;
+                border: 1px solid #dbe3f2;
+                border-radius: 10px;
+                padding: 10px 12px;
+                transition: border-color .15s ease, box-shadow .15s ease;
+            }
+
+            /* ------------------------- */
+            /* Placeholder color         */
+            /* ------------------------- */
+            #contact-form ::placeholder {
+                color: #9aa3b5;
+            }
+
+            /* ------------------------- */
+            /* Focus states              */
+            /* ------------------------- */
+            #contact-form input:focus,
+            #contact-form textarea:focus {
+                outline: none;
+                border-color: var(--accent);
+                box-shadow: 0 0 0 3px rgba(42, 75, 141, .15);
+            }
+
+            /* ------------------------- */
+            /* Textarea size             */
+            /* ------------------------- */
+            #contact-form textarea {
+                min-height: 140px;
+                resize: vertical;
+            }
+
+            /* ------------------------- */
+            /* Submit button alignment   */
+            /* ------------------------- */
+            #contact-form .btn {
+                margin-top: 6px;
+            }
+
+            /* ------------------------- */
+            /* Status message            */
+            /* ------------------------- */
+            #contact-form #cf-status {
+                font: 600 .95rem/1.4 'Merriweather', serif;
+                color: var(--ink-soft);
+            }
+
+            /* ------------------------- */
+            /* Success / error colors    */
+            /* ------------------------- */
+            #contact-form.success #cf-status {
+                color: var(--success);
+            }
+
+            #contact-form.error #cf-status {
+                color: #b94b4b;
+            }
+
+            /* ------------------------- */
+            /* Small-screen tweaks       */
+            /* ------------------------- */
+            @media (max-width: 768px) {
+                #contact-form {
+                    padding: 16px;
                 }
             }
         </style>

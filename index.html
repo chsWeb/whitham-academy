@@ -250,112 +250,342 @@
                 }
             }
 
-            /* ------------------------- */
-            /* Contact form: container   */
-            /* ------------------------- */
-            #contact-form {
-                background: var(--paper);
-                border: 1px solid #e8eef7;
-                border-radius: 12px;
-                padding: 18px;
-                max-width: 720px;
-                margin: 12px auto 0;
+            /* Form CSS */
+            button,
+            input,
+            optgroup,
+            select,
+            textarea {
+                font-family: inherit;
+                font-feature-settings: inherit;
+                font-variation-settings: inherit;
+                font-size: 100%;
+                font-weight: inherit;
+                line-height: inherit;
+                color: inherit;
+                margin: 0;
+                padding: 0;
             }
 
-            /* ------------------------- */
-            /* Rows + layout             */
-            /* ------------------------- */
-            #contact-form .form-row {
-                display: grid;
-                gap: 8px;
-                margin-bottom: 14px;
-            }
-
-            /* ------------------------- */
-            /* Labels                    */
-            /* ------------------------- */
-            #contact-form label {
-                font-family: 'Cormorant Garamond', serif;
-                font-weight: 700;
-                letter-spacing: .2px;
-                color: var(--ink);
-            }
-
-            /* ------------------------- */
-            /* Inputs + textarea         */
-            /* ------------------------- */
-            #contact-form input[type="text"],
-            #contact-form input[type="email"],
-            #contact-form textarea {
+            [type="checkbox"],
+            [type="radio"],
+            [type="range"] {
                 appearance: none;
-                width: 100%;
-                font: 400 1rem/1.5 'Merriweather', serif;
-                color: var(--ink);
-                background: #fff;
-                border: 1px solid #dbe3f2;
-                border-radius: 10px;
-                padding: 10px 12px;
-                transition: border-color .15s ease, box-shadow .15s ease;
+                flex-shrink: 0;
+                padding: 0;
+                user-select: none;
             }
 
-            /* ------------------------- */
-            /* Placeholder color         */
-            /* ------------------------- */
-            #contact-form ::placeholder {
-                color: #9aa3b5;
-            }
-
-            /* ------------------------- */
-            /* Focus states              */
-            /* ------------------------- */
-            #contact-form input:focus,
-            #contact-form textarea:focus {
+            [type="checkbox"]:focus,
+            [type="radio"]:focus,
+            [type="range"]:focus {
                 outline: none;
-                border-color: var(--accent);
-                box-shadow: 0 0 0 3px rgba(42, 75, 141, .15);
             }
 
-            /* ------------------------- */
-            /* Textarea size             */
-            /* ------------------------- */
-            #contact-form textarea {
-                min-height: 140px;
+            /** Components **/
+
+            .fs-form {
+                display: grid;
+                row-gap: 1.5rem;
+            }
+
+            .fs-form:where(.fs-layout__2-column) {
+                column-gap: 1.5rem;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            fieldset {
+                display: grid;
+                margin: 1.5rem 0;
+                row-gap: 1.5rem;
+            }
+
+            .fs-form:where(.fs-layout__2-column) fieldset {
+                column-gap: 1.5rem;
+                grid-template-columns: 1fr 1fr;
+                grid-column: 1 / -1;
+            }
+
+            .fs-fieldset-title {
+                color: var(--color-text-default);
+                font-family: var(--font-family-display);
+                font-size: 1.25rem;
+                line-height: 1.75rem;
+                margin-bottom: 1.5rem;
+                grid-column: 1 / -1;
+            }
+
+            .fs-field {
+                display: flex;
+                flex-direction: column;
+                row-gap: 0.5rem;
+            }
+
+            .fs-label {
+                color: var(--color-text-default);
+                display: block;
+                font-family: var(--font-family-display);
+                font-size: 1rem;
+                line-height: 1.25rem;
+            }
+
+            .fs-description {
+                color: var(--color-text-muted);
+                display: block;
+                font-size: 1rem;
+                line-height: 1.25rem;
+            }
+
+            .fs-button-group {
+                display: flex;
+                flex-direction: row-reverse;
+                column-gap: 1.5rem;
+            }
+
+            .fs-form:where(.fs-layout__2-column) .fs-button-group {
+                grid-column: 1 / -1;
+            }
+
+            .fs-button {
+                background-color: var(--color-primary);
+                border-radius: 9999px;
+                color: white;
+                cursor: pointer;
+                font-size: 1.125rem;
+                font-weight: 600;
+                line-height: 1.5rem;
+                padding: 0.75rem 2rem;
+                transition-duration: 200ms;
+                transition-property: background-color;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .fs-button:hover {
+                background-color: var(--color-primary-active);
+            }
+
+            .fs-button:focus-visible {
+                background-color: var(--color-primary-active);
+                outline: 4px solid var(--color-highlight);
+            }
+
+            .fs-input,
+            .fs-select {
+                appearance: none;
+                border-radius: 9999px;
+                border-width: 0;
+                box-shadow: var(--color-border-default) 0 0 0 1px inset;
+                color: var(--color-text-default);
+                font-size: 1rem;
+                height: 3rem;
+                line-height: 1.5rem;
+                outline: none;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .fs-input:focus-visible,
+            .fs-select:focus-visible {
+                box-shadow: var(--color-border-active) 0 0 0 1px inset;
+            }
+
+            .fs-input::placeholder {
+                color: var(--color-text-muted);
+            }
+
+            .fs-checkbox-group,
+            .fs-radio-group {
+                display: flex;
+                flex-direction: column;
+                row-gap: 1rem;
+            }
+
+            .fs-checkbox-field,
+            .fs-radio-field {
+                column-gap: 0.5rem;
+                display: flex;
+            }
+
+            :is(.fs-checkbox-field, .fs-radio-field) .fs-label+.fs-description {
+                margin-top: 0.25rem;
+            }
+
+            .fs-checkbox-wrapper,
+            .fs-radio-wrapper {
+                align-items: center;
+                display: flex;
+                height: 1.25rem;
+            }
+
+            .fs-checkbox,
+            .fs-radio {
+                background-color: #fff;
+                border: 1px solid var(--color-border-default);
+                height: 1.25rem;
+                width: 1.25rem;
+            }
+
+            .fs-checkbox {
+                border-radius: 0.25rem;
+            }
+
+            .fs-radio {
+                border-radius: 100%;
+            }
+
+            .fs-checkbox:checked,
+            .fs-radio:checked {
+                background-color: var(--color-primary);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                border-color: transparent;
+            }
+
+            .fs-checkbox:checked {
+                background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+            }
+
+            .fs-radio:checked {
+                background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+            }
+
+            .fs-checkbox:focus-visible,
+            .fs-radio:focus-visible {
+                border-color: var(--color-border-active);
+                outline: 4px solid var(--color-highlight);
+                outline-offset: 0;
+            }
+
+            .fs-checkbox:checked:focus-visible,
+            .fs-radio:checked:focus-visible {
+                border-color: transparent;
+            }
+
+            .fs-select {
+                background-color: #fff;
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+                background-position: right 0.75rem center;
+                background-repeat: no-repeat;
+                background-size: 1.625em 1.625em;
+                padding-right: 2.875rem;
+            }
+
+            .fs-slider {
+                background: transparent;
+                cursor: pointer;
+                height: 1.25rem;
+                width: 100%;
+            }
+
+            .fs-slider::-moz-range-track {
+                background-color: var(--color-background);
+                border-radius: 0.5rem;
+                height: 0.5rem;
+            }
+
+            .fs-slider::-webkit-slider-runnable-track {
+                background-color: var(--color-background);
+                border-radius: 0.5rem;
+                height: 0.5rem;
+            }
+
+            .fs-slider::-moz-range-thumb {
+                background-color: var(--color-primary);
+                border: none;
+                /* Removes extra border that FF applies */
+                border-radius: 50%;
+                height: 1.25rem;
+                width: 1.25rem;
+            }
+
+            .fs-slider::-webkit-slider-thumb {
+                appearance: none;
+                background-color: var(--color-primary);
+                border-radius: 50%;
+                height: 1.25rem;
+                margin-top: -0.375rem;
+                /* Centers thumb on the track */
+                width: 1.25rem;
+            }
+
+            .fs-slider:focus-visible::-moz-range-thumb {
+                outline: 2px solid var(--color-primary);
+                outline-offset: 2px;
+            }
+
+            .fs-slider:focus-visible::-webkit-slider-thumb {
+                outline: 2px solid var(--color-primary);
+                outline-offset: 2px;
+            }
+
+            .fs-switch {
+                background-color: var(--color-background-alt);
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2.75' fill='white'/%3e%3c/svg%3e");
+                background-position: left center;
+                background-repeat: no-repeat;
+                border-radius: 1.25rem;
+                cursor: pointer;
+                height: 1.25rem;
+                transition-duration: 200ms;
+                transition-property: background-color, background-position;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                width: 2.5rem;
+            }
+
+            .fs-switch:checked {
+                background-color: var(--color-primary);
+                background-position: right center;
+            }
+
+            .fs-switch:focus-visible {
+                outline: 4px solid var(--color-highlight);
+                outline-offset: 0;
+            }
+
+            .fs-textarea {
+                appearance: none;
+                border-radius: 0.75rem;
+                border-width: 0;
+                box-shadow: var(--color-border-default) 0 0 0 1px inset;
+                color: var(--color-text-default);
+                font-size: 1rem;
+                line-height: 1.5rem;
+                outline: none;
+                padding: 0.5rem 0.75rem;
                 resize: vertical;
             }
 
-            /* ------------------------- */
-            /* Submit button alignment   */
-            /* ------------------------- */
-            #contact-form .btn {
-                margin-top: 6px;
+            .fs-textarea:focus-visible {
+                box-shadow: var(--color-border-active) 0 0 0 1px inset;
             }
 
-            /* ------------------------- */
-            /* Status message            */
-            /* ------------------------- */
-            #contact-form #cf-status {
-                font: 600 .95rem/1.4 'Merriweather', serif;
-                color: var(--ink-soft);
+            .fs-textarea::placeholder {
+                color: var(--color-text-muted);
             }
 
-            /* ------------------------- */
-            /* Success / error colors    */
-            /* ------------------------- */
-            #contact-form.success #cf-status {
-                color: var(--success);
+            /** Utilities **/
+
+            .col-span-full {
+                grid-column: 1 / -1;
             }
 
-            #contact-form.error #cf-status {
-                color: #b94b4b;
+            .fs-textarea::placeholder {
+                color: var(--color-text-muted);
             }
 
-            /* ------------------------- */
-            /* Small-screen tweaks       */
-            /* ------------------------- */
-            @media (max-width: 768px) {
-                #contact-form {
-                    padding: 16px;
-                }
+            .slider-label-container {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                margin-top: 0.25rem;
+            }
+
+            .slider-label-text {
+                font-size: 0.75rem;
+                color: var(--color-text-muted);
+                text-align: center;
+                white-space: nowrap;
             }
         </style>
         <!-- Auto Capture -->
@@ -601,93 +831,27 @@
             <section id="contact">
                 <div class="wrap"> <span class="kicker">Get in Touch</span>
                     <h3>Contact</h3>
-                    <form id="contact-form" action="https://formspree.io/f/xjkeqypk" method="POST" novalidate>
-                        <div class="form-row">
-                            <label for="cf-name">Name</label>
-                            <input id="cf-name" name="name" type="text" required autocomplete="name">
+                    <form action="https://formspree.io/f/{FORM_ID}" class="fs-form" target="_top" method="POST">
+                        <div class="fs-field">
+                            <label class="fs-label" for="name">Your Name</label>
+                            <input class="fs-input" id="name" name="name" required />
                         </div>
-
-                        <div class="form-row">
-                            <label for="cf-email">Email</label>
-                            <input id="cf-email" name="email" type="email" required autocomplete="email">
+                        <div class="fs-field">
+                            <label class="fs-label" for="email">Email</label>
+                            <input class="fs-input" id="email" name="email" required />
+                            <p class="fs-description">
+                                This will help me respond to your query via an email.
+                            </p>
                         </div>
-
-                        <div class="form-row">
-                            <label for="cf-message">Message</label>
-                            <textarea id="cf-message" name="message" rows="6" required></textarea>
+                        <div class="fs-field">
+                            <label class="fs-label" for="message">Message</label>
+                            <textarea class="fs-textarea" id="message" name="message" required></textarea>
+                            <p class="fs-description">What would you like to discuss?</p>
                         </div>
-
-                        <!-- Honeypot (hidden to humans) -->
-                        <div style="position:absolute;left:-9999px;" aria-hidden="true">
-                            <label for="cf-company">Company</label>
-                            <input id="cf-company" name="company" type="text" tabindex="-1" autocomplete="off">
+                        <div class="fs-button-group">
+                            <button class="fs-button" type="submit">Submit</button>
                         </div>
-
-                        <!-- Time trap -->
-                        <input type="hidden" name="submitted_at" id="cf-submitted-at" value="">
-
-                        <!-- Where Formspree should send notifications (set in Formspree dashboard). 
-       Do NOT put your email in the HTML. -->
-
-                        <button type="submit" class="btn">Send</button>
-
-                        <p id="cf-status" role="status" style="margin-top:10px;"></p>
                     </form>
-
-                    <script>
-                        // Basic client-side hardening + UX
-                        (function () {
-                            const form = document.getElementById('contact-form');
-                            const status = document.getElementById('cf-status');
-                            const submittedAt = document.getElementById('cf-submitted-at');
-
-                            // set load timestamp (ms)
-                            const pageLoadedAt = Date.now();
-
-                            // set hidden field with ISO timestamp (useful for server rules)
-                            submittedAt.value = new Date().toISOString();
-
-                            function isLikelyBot() {
-                                // Honeypot check
-                                const hp = document.getElementById('cf-company');
-                                if (hp && hp.value.trim() !== '') return true;
-
-                                // Time trap (e.g., under 2 seconds from load to submit)
-                                const elapsed = Date.now() - pageLoadedAt;
-                                if (elapsed < 2000) return true;
-
-                                return false;
-                            }
-
-                            form.addEventListener('submit', async function (e) {
-                                e.preventDefault();
-
-                                if (isLikelyBot()) {
-                                    status.textContent = "Submission blocked. Please try again.";
-                                    return;
-                                }
-
-                                const data = new FormData(form);
-
-                                try {
-                                    const res = await fetch(form.action, {
-                                        method: 'POST',
-                                        body: data,
-                                        headers: { 'Accept': 'application/json' }
-                                    });
-
-                                    if (res.ok) {
-                                        status.textContent = "Thanks! We’ll be in touch shortly.";
-                                        form.reset();
-                                    } else {
-                                        status.textContent = "There was a problem. Please email admissions@whithamacademy.org.";
-                                    }
-                                } catch (err) {
-                                    status.textContent = "Network issue. Please try again or email admissions@whithamacademy.org.";
-                                }
-                            });
-                        })();
-                    </script>
                     <p class="legal"><strong>Privacy:</strong> We respect family privacy and maintain student records
                         securely. Records are released only with written guardian consent or as required by law.</p>
                 </div>

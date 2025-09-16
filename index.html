@@ -587,6 +587,146 @@
                 text-align: center;
                 white-space: nowrap;
             }
+
+            /* formspree overrides */
+            /* ------------------------- */
+            /* Scope: only .fs-form      */
+            /* ------------------------- */
+            .fs-form {
+                /* match site card look */
+                background: var(--paper);
+                border: 1px solid #e8eef7;
+                border-radius: 12px;
+                padding: 18px;
+                max-width: 720px;
+                margin: 12px auto 0;
+
+                /* spacing consistent with site */
+                display: grid;
+                row-gap: 1rem;
+            }
+
+            /* ------------------------- */
+            /* Field stack + labels      */
+            /* ------------------------- */
+            .fs-field {
+                display: flex;
+                flex-direction: column;
+                row-gap: 0.5rem;
+            }
+
+            .fs-label {
+                /* classical heading font */
+                font-family: 'Cormorant Garamond', serif;
+                font-weight: 700;
+                letter-spacing: .2px;
+                color: var(--ink);
+                font-size: 1rem;
+            }
+
+            /* ------------------------- */
+            /* Inputs / textarea         */
+            /* ------------------------- */
+            .fs-input,
+            .fs-select {
+                /* pill → softer pill to match site */
+                border-radius: 10px;
+                box-shadow: none;
+                border: 1px solid #dbe3f2;
+                background: #fff;
+                color: var(--ink);
+                font: 400 1rem/1.5 'Merriweather', serif;
+                height: auto;
+                padding: 10px 12px;
+                transition: border-color .15s ease, box-shadow .15s ease;
+            }
+
+            .fs-textarea {
+                border-radius: 10px;
+                border: 1px solid #dbe3f2;
+                background: #fff;
+                color: var(--ink);
+                font: 400 1rem/1.5 'Merriweather', serif;
+                padding: 10px 12px;
+                min-height: 140px;
+                resize: vertical;
+                transition: border-color .15s ease, box-shadow .15s ease;
+            }
+
+            /* ------------------------- */
+            /* Placeholder color         */
+            /* ------------------------- */
+            .fs-input::placeholder,
+            .fs-textarea::placeholder {
+                color: #9aa3b5;
+            }
+
+            /* ------------------------- */
+            /* Focus states              */
+            /* ------------------------- */
+            .fs-input:focus,
+            .fs-textarea:focus,
+            .fs-select:focus {
+                outline: none;
+                border-color: var(--accent);
+                box-shadow: 0 0 0 3px rgba(42, 75, 141, .15);
+            }
+
+            /* ------------------------- */
+            /* Helper text               */
+            /* ------------------------- */
+            .fs-description {
+                color: var(--ink-soft);
+                font: 400 .95rem/1.4 'Merriweather', serif;
+            }
+
+            /* ------------------------- */
+            /* Button to match .btn      */
+            /* ------------------------- */
+            .fs-button {
+                background: var(--accent);
+                color: #fff;
+                border-radius: 8px;
+                font-weight: 700;
+                font-size: 1rem;
+                line-height: 1.2;
+                padding: 10px 16px;
+                cursor: pointer;
+                transition: background .15s ease;
+            }
+
+            .fs-button:hover,
+            .fs-button:focus {
+                background: #203a6d;
+            }
+
+            /* ------------------------- */
+            /* Button group alignment    */
+            /* ------------------------- */
+            .fs-button-group {
+                display: flex;
+                justify-content: flex-start;
+            }
+
+            /* ------------------------- */
+            /* Status color helpers      */
+            /* ------------------------- */
+            .fs-form.success #cf-status {
+                color: var(--success);
+            }
+
+            .fs-form.error #cf-status {
+                color: #b94b4b;
+            }
+
+            /* ------------------------- */
+            /* Small-screen padding      */
+            /* ------------------------- */
+            @media (max-width: 768px) {
+                .fs-form {
+                    padding: 16px;
+                }
+            }
         </style>
         <!-- Auto Capture -->
         <script type="text/javascript">(function (f, b) {
@@ -831,7 +971,7 @@
             <section id="contact">
                 <div class="wrap"> <span class="kicker">Get in Touch</span>
                     <h3>Contact</h3>
-                    <form action="https://formspree.io/f/{FORM_ID}" class="fs-form" target="_top" method="POST">
+                    <!--<form action="https://formspree.io/f/xjkeqypk" class="fs-form" target="_top" method="POST">
                         <div class="fs-field">
                             <label class="fs-label" for="name">Your Name</label>
                             <input class="fs-input" id="name" name="name" required />
@@ -851,9 +991,35 @@
                         <div class="fs-button-group">
                             <button class="fs-button" type="submit">Submit</button>
                         </div>
+                    </form>-->
+                    <form action="https://formspree.io/f/xjkeqypk" class="fs-form" method="POST" novalidate>
+                        <div class="fs-field">
+                            <label class="fs-label" for="name">Your Name</label>
+                            <input class="fs-input" id="name" name="name" type="text" required placeholder="Jane Doe" />
+                        </div>
+
+                        <div class="fs-field">
+                            <label class="fs-label" for="email">Email</label>
+                            <input class="fs-input" id="email" name="email" type="email" required
+                                placeholder="you@example.com" />
+                            <p class="fs-description">We’ll reply to this address.</p>
+                        </div>
+
+                        <div class="fs-field">
+                            <label class="fs-label" for="message">Message</label>
+                            <textarea class="fs-textarea" id="message" name="message" rows="6" required
+                                placeholder="How can we help?"></textarea>
+                            <p class="fs-description">Admissions, curriculum, schedules, etc.</p>
+                        </div>
+
+                        <div class="fs-button-group">
+                            <button class="fs-button" type="submit">Send</button>
+                        </div>
+                        <p id="cf-status" class="fs-description" role="status" aria-live="polite"></p>
+                        <p class="legal"><strong>Privacy:</strong> We respect family privacy and maintain student
+                            records
+                            securely. Records are released only with written guardian consent or as required by law.</p>
                     </form>
-                    <p class="legal"><strong>Privacy:</strong> We respect family privacy and maintain student records
-                        securely. Records are released only with written guardian consent or as required by law.</p>
                 </div>
             </section>
         </main>

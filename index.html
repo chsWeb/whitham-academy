@@ -429,7 +429,93 @@
             <section id="contact">
                 <div class="wrap"> <span class="kicker">Get in Touch</span>
                     <h3>Contact</h3>
-                    <p>Email us at <a href="mailto:info@whithamacademy.org">info@whithamacademy.org</a></p>
+                    <form id="contact-form" action="https://formspree.io/f/xjkeqypk" method="POST" novalidate>
+                        <div class="form-row">
+                            <label for="cf-name">Name</label>
+                            <input id="cf-name" name="name" type="text" required autocomplete="name">
+                        </div>
+
+                        <div class="form-row">
+                            <label for="cf-email">Email</label>
+                            <input id="cf-email" name="email" type="email" required autocomplete="email">
+                        </div>
+
+                        <div class="form-row">
+                            <label for="cf-message">Message</label>
+                            <textarea id="cf-message" name="message" rows="6" required></textarea>
+                        </div>
+
+                        <!-- Honeypot (hidden to humans) -->
+                        <div style="position:absolute;left:-9999px;" aria-hidden="true">
+                            <label for="cf-company">Company</label>
+                            <input id="cf-company" name="company" type="text" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <!-- Time trap -->
+                        <input type="hidden" name="submitted_at" id="cf-submitted-at" value="">
+
+                        <!-- Where Formspree should send notifications (set in Formspree dashboard). 
+       Do NOT put your email in the HTML. -->
+
+                        <button type="submit" class="btn">Send</button>
+
+                        <p id="cf-status" role="status" style="margin-top:10px;"></p>
+                    </form>
+
+                    <script>
+                        // Basic client-side hardening + UX
+                        (function () {
+                            const form = document.getElementById('contact-form');
+                            const status = document.getElementById('cf-status');
+                            const submittedAt = document.getElementById('cf-submitted-at');
+
+                            // set load timestamp (ms)
+                            const pageLoadedAt = Date.now();
+
+                            // set hidden field with ISO timestamp (useful for server rules)
+                            submittedAt.value = new Date().toISOString();
+
+                            function isLikelyBot() {
+                                // Honeypot check
+                                const hp = document.getElementById('cf-company');
+                                if (hp && hp.value.trim() !== '') return true;
+
+                                // Time trap (e.g., under 2 seconds from load to submit)
+                                const elapsed = Date.now() - pageLoadedAt;
+                                if (elapsed < 2000) return true;
+
+                                return false;
+                            }
+
+                            form.addEventListener('submit', async function (e) {
+                                e.preventDefault();
+
+                                if (isLikelyBot()) {
+                                    status.textContent = "Submission blocked. Please try again.";
+                                    return;
+                                }
+
+                                const data = new FormData(form);
+
+                                try {
+                                    const res = await fetch(form.action, {
+                                        method: 'POST',
+                                        body: data,
+                                        headers: { 'Accept': 'application/json' }
+                                    });
+
+                                    if (res.ok) {
+                                        status.textContent = "Thanks! We’ll be in touch shortly.";
+                                        form.reset();
+                                    } else {
+                                        status.textContent = "There was a problem. Please email admissions@whithamacademy.org.";
+                                    }
+                                } catch (err) {
+                                    status.textContent = "Network issue. Please try again or email admissions@whithamacademy.org.";
+                                }
+                            });
+                        })();
+                    </script>
                     <p class="legal"><strong>Privacy:</strong> We respect family privacy and maintain student records
                         securely. Records are released only with written guardian consent or as required by law.</p>
                 </div>

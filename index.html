@@ -110,17 +110,29 @@
                 color: var(--accent);
             }
             /* Jump Links */
-            ::target-text {
-              background-color: rebeccapurple;
-              color: white;
-            } 
-            /* Selects document's target element */
-            :target .kicker {
-                background: rgb(42, 75, 141, .15);
-                display: inline-block;
-                padding: .5rem .75rem;
-                border-radius: .45rem;
-            }
+            /* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-0.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Jump target background highlight */
+:target .kicker {
+  background: rgba(42, 75, 141, 0.15);
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.45rem;
+
+  /* Add animation */
+  opacity: 0; /* Start hidden */
+  animation: fadeIn 0.6s ease-out 0.4s forwards;
+}
 
             /* Hero */
             .hero {

@@ -773,13 +773,14 @@
             })(document, window.mixpanel || []);
         </script>
         <script>
-            mixpanel.init('9c1ab0b7b3daaef8bd2a64f4fe29eb8c', {
-  record_sessions_percent: 100,
-  record_block_selector: '', // show images/videos
-  record_mask_text_class: '', // no class-based masking for text
-  record_mask_text_selector: '', // unmask non-input text
-  record_heatmap_data: true, // optional
-        </script>
+  mixpanel.init('9c1ab0b7b3daaef8bd2a64f4fe29eb8c', {
+    record_sessions_percent: 100,
+    record_block_selector: '', /* show images/videos */
+    record_mask_text_class: '', /* no class-based masking for text */
+    record_mask_text_selector: '', /* unmask non-input text */
+    record_heatmap_data: true /* optional */
+  });
+</script>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 var err = document.querySelector(".center-layout.error-layout.notification-error");

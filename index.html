@@ -3,741 +3,14 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Whitham Academy • Classical & Waldorf-Inspired K–12</title>
+        <title>Whitham Academy • Classical & Waldorf-Inspired K-12</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description"
-            content="Whitham Academy is a classical, Waldorf-inspired K–12 homeschool academy focused on truth, beauty, and goodness through rigorous academics and the arts.">
+            content="Whitham Academy is a classical, Waldorf-inspired K-12 homeschool academy focused on truth, beauty, and goodness through rigorous academics and the arts.">
         <link
             href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Merriweather:wght@400;700&display=swap"
             rel="stylesheet">
-        <style>
-            /* Root palette and typography */
-            :root {
-                --ink: #1d2330;
-                --ink-soft: #3e4660;
-                --sky: #f3f6fb;
-                --paper: #ffffff;
-                --accent: #2a4b8d;
-                --accent-2: #7b9bd6;
-                --success: #2f7b4a;
-            }
-
-            /* Base element resets */
-            html,
-            body {
-                height: 100%;
-            }
-            html {
-                scroll-behavior: smooth;
-            }
-
-            /* Body defaults */
-            body {
-                margin: 0;
-                background: var(--sky);
-                color: var(--ink);
-                font-family: 'Merriweather', serif;
-                line-height: 1.6;
-                -webkit-font-smoothing: antialiased;
-                text-rendering: optimizeLegibility;
-            }
-
-            /* Layout containers */
-            .wrap {
-                max-width: 1100px;
-                margin: 0 auto;
-                padding: 0 20px;
-            }
-
-            /* Skip link for accessibility */
-            .skip-link {
-                position: absolute;
-                top: -40px;
-                left: 0;
-                background: var(--accent);
-                color: #fff;
-                padding: 8px 12px;
-                text-decoration: none;
-            }
-
-            .skip-link:focus {
-                top: 0;
-            }
-
-            /* Header */
-            header {
-                background: var(--paper);
-                border-bottom: 1px solid #e8eef7;
-            }
-
-            .brand {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                padding: 16px 0;
-            }
-
-            .logo {
-                width: 40px;
-                height: 40px;
-                border-radius: 8px;
-                background: linear-gradient(135deg, var(--accent), var(--accent-2));
-                display: inline-block;
-            }
-
-            .brand h1 {
-                font-family: 'Cormorant Garamond', serif;
-                font-size: 1.5rem;
-                letter-spacing: .3px;
-                margin: 0;
-            }
-
-            nav ul {
-                list-style: none;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                gap: 18px;
-                flex-wrap: wrap;
-            }
-
-            nav a {
-                text-decoration: none;
-                color: var(--ink);
-                font-weight: 700;
-                font-family: 'Cormorant Garamond', serif;
-            }
-
-            nav a:hover,
-            nav a:focus {
-                color: var(--accent);
-            }
-/* Jump target background highlight */
-:target:not(a.top) .kicker {
-  background: rgba(42, 75, 141, 0.15);
-  display: inline-block;
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.45rem;
-}
-
-            /* Hero */
-            .hero {
-                background: var(--paper);
-                padding: 48px 0 36px;
-                border-bottom: 1px solid #e8eef7;
-                text-align: center;
-            }
-
-            .hero h2 {
-                font-family: 'Cormorant Garamond', serif;
-                font-size: 2.2rem;
-                line-height: 1.2;
-                margin: 0 0 12px;
-                color: var(--accent);
-            }
-
-            .hero p {
-                margin: 0 auto 18px;
-                max-width: 780px;
-                color: var(--ink-soft);
-            }
-
-            .btn {
-                display: inline-block;
-                padding: 10px 16px;
-                background: var(--accent);
-                color: #fff;
-                text-decoration: none;
-                border-radius: 8px;
-                font-weight: 700;
-            }
-
-            .btn:hover,
-            .btn:focus {
-                background: #203a6d;
-            }
-
-            /* Section blocks */
-            section {
-                padding: 36px 0;
-            }
-
-            section h3 {
-                font-family: 'Cormorant Garamond', serif;
-                font-size: 1.6rem;
-                margin: 0 0 10px;
-                color: var(--ink);
-            }
-
-            .cards {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-                gap: 16px;
-            }
-
-            .card {
-                background: var(--paper);
-                border: 1px solid #e8eef7;
-                border-radius: 12px;
-                padding: 18px;
-            }
-
-            .kicker {
-                font-size: .85rem;
-                text-transform: uppercase;
-                letter-spacing: .08em;
-                color: var(--accent);
-                margin-bottom: 6px;
-                display: block;
-            }
-
-            /* Definition list for quick facts */
-            .facts {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 8px;
-            }
-
-            .facts dt {
-                font-weight: 700;
-            }
-
-            .facts dd {
-                margin: 0;
-                color: var(--ink-soft);
-            }
-
-            /* Footer */
-            footer {
-                background: var(--paper);
-                border-top: 1px solid #e8eef7;
-                color: var(--ink-soft);
-                padding: 24px 0 48px;
-                font-size: .95rem;
-            }
-
-            .legal {
-                font-size: .85rem;
-                color: #6a728b;
-                margin-top: 8px;
-            }
-
-            /* Small screen nav */
-            .nav-row {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                gap: 12px;
-            }
-
-            .menu-btn {
-                display: none;
-                appearance: none;
-                border: 1px solid #e0e6f2;
-                background: var(--paper);
-                padding: 8px 10px;
-                border-radius: 8px;
-                font-weight: 700;
-            }
-
-            @media (max-width:768px) {
-                nav ul {
-                    display: none;
-                }
-
-                nav ul.open {
-                    display: flex;
-                    width: 100%;
-                    margin-top: 12px;
-                }
-
-                .menu-btn {
-                    display: inline-block;
-                }
-
-                .hero h2 {
-                    font-size: 1.9rem;
-                }
-            }
-
-            /* Form CSS */
-            button,
-            input,
-            optgroup,
-            select,
-            textarea {
-                font-family: inherit;
-                font-feature-settings: inherit;
-                font-variation-settings: inherit;
-                font-size: 100%;
-                font-weight: inherit;
-                line-height: inherit;
-                color: inherit;
-                margin: 0;
-                padding: 0;
-            }
-
-            [type="checkbox"],
-            [type="radio"],
-            [type="range"] {
-                appearance: none;
-                flex-shrink: 0;
-                padding: 0;
-                user-select: none;
-            }
-
-            [type="checkbox"]:focus,
-            [type="radio"]:focus,
-            [type="range"]:focus {
-                outline: none;
-            }
-
-            /** Components **/
-
-            .fs-form {
-                display: grid;
-                row-gap: 1.5rem;
-            }
-
-            .fs-form:where(.fs-layout__2-column) {
-                column-gap: 1.5rem;
-                grid-template-columns: 1fr 1fr;
-            }
-
-            fieldset {
-                display: grid;
-                margin: 1.5rem 0;
-                row-gap: 1.5rem;
-            }
-
-            .fs-form:where(.fs-layout__2-column) fieldset {
-                column-gap: 1.5rem;
-                grid-template-columns: 1fr 1fr;
-                grid-column: 1 / -1;
-            }
-
-            .fs-fieldset-title {
-                color: var(--color-text-default);
-                font-family: var(--font-family-display);
-                font-size: 1.25rem;
-                line-height: 1.75rem;
-                margin-bottom: 1.5rem;
-                grid-column: 1 / -1;
-            }
-
-            .fs-field {
-                display: flex;
-                flex-direction: column;
-                row-gap: 0.5rem;
-            }
-
-            .fs-label {
-                color: var(--color-text-default);
-                display: block;
-                font-family: var(--font-family-display);
-                font-size: 1rem;
-                line-height: 1.25rem;
-            }
-
-            .fs-description {
-                color: var(--color-text-muted);
-                display: block;
-                font-size: 1rem;
-                line-height: 1.25rem;
-            }
-
-            .fs-button-group {
-                display: flex;
-                flex-direction: row-reverse;
-                column-gap: 1.5rem;
-            }
-
-            .fs-form:where(.fs-layout__2-column) .fs-button-group {
-                grid-column: 1 / -1;
-            }
-
-            .fs-button {
-                background-color: var(--color-primary);
-                border-radius: 9999px;
-                color: white;
-                cursor: pointer;
-                font-size: 1.125rem;
-                font-weight: 600;
-                line-height: 1.5rem;
-                padding: 0.75rem 2rem;
-                transition-duration: 200ms;
-                transition-property: background-color;
-                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            .fs-button:hover {
-                background-color: var(--color-primary-active);
-            }
-
-            .fs-button:focus-visible {
-                background-color: var(--color-primary-active);
-                outline: 4px solid var(--color-highlight);
-            }
-
-            .fs-input,
-            .fs-select {
-                appearance: none;
-                border-radius: 9999px;
-                border-width: 0;
-                box-shadow: var(--color-border-default) 0 0 0 1px inset;
-                color: var(--color-text-default);
-                font-size: 1rem;
-                height: 3rem;
-                line-height: 1.5rem;
-                outline: none;
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-
-            .fs-input:focus-visible,
-            .fs-select:focus-visible {
-                box-shadow: var(--color-border-active) 0 0 0 1px inset;
-            }
-
-            .fs-input::placeholder {
-                color: var(--color-text-muted);
-            }
-
-            .fs-checkbox-group,
-            .fs-radio-group {
-                display: flex;
-                flex-direction: column;
-                row-gap: 1rem;
-            }
-
-            .fs-checkbox-field,
-            .fs-radio-field {
-                column-gap: 0.5rem;
-                display: flex;
-            }
-
-            :is(.fs-checkbox-field, .fs-radio-field) .fs-label+.fs-description {
-                margin-top: 0.25rem;
-            }
-
-            .fs-checkbox-wrapper,
-            .fs-radio-wrapper {
-                align-items: center;
-                display: flex;
-                height: 1.25rem;
-            }
-
-            .fs-checkbox,
-            .fs-radio {
-                background-color: #fff;
-                border: 1px solid var(--color-border-default);
-                height: 1.25rem;
-                width: 1.25rem;
-            }
-
-            .fs-checkbox {
-                border-radius: 0.25rem;
-            }
-
-            .fs-radio {
-                border-radius: 100%;
-            }
-
-            .fs-checkbox:checked,
-            .fs-radio:checked {
-                background-color: var(--color-primary);
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: 100% 100%;
-                border-color: transparent;
-            }
-
-            .fs-checkbox:checked {
-                background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
-            }
-
-            .fs-radio:checked {
-                background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
-            }
-
-            .fs-checkbox:focus-visible,
-            .fs-radio:focus-visible {
-                border-color: var(--color-border-active);
-                outline: 4px solid var(--color-highlight);
-                outline-offset: 0;
-            }
-
-            .fs-checkbox:checked:focus-visible,
-            .fs-radio:checked:focus-visible {
-                border-color: transparent;
-            }
-
-            .fs-select {
-                background-color: #fff;
-                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-                background-position: right 0.75rem center;
-                background-repeat: no-repeat;
-                background-size: 1.625em 1.625em;
-                padding-right: 2.875rem;
-            }
-
-            .fs-slider {
-                background: transparent;
-                cursor: pointer;
-                height: 1.25rem;
-                width: 100%;
-            }
-
-            .fs-slider::-moz-range-track {
-                background-color: var(--color-background);
-                border-radius: 0.5rem;
-                height: 0.5rem;
-            }
-
-            .fs-slider::-webkit-slider-runnable-track {
-                background-color: var(--color-background);
-                border-radius: 0.5rem;
-                height: 0.5rem;
-            }
-
-            .fs-slider::-moz-range-thumb {
-                background-color: var(--color-primary);
-                border: none;
-                /* Removes extra border that FF applies */
-                border-radius: 50%;
-                height: 1.25rem;
-                width: 1.25rem;
-            }
-
-            .fs-slider::-webkit-slider-thumb {
-                appearance: none;
-                background-color: var(--color-primary);
-                border-radius: 50%;
-                height: 1.25rem;
-                margin-top: -0.375rem;
-                /* Centers thumb on the track */
-                width: 1.25rem;
-            }
-
-            .fs-slider:focus-visible::-moz-range-thumb {
-                outline: 2px solid var(--color-primary);
-                outline-offset: 2px;
-            }
-
-            .fs-slider:focus-visible::-webkit-slider-thumb {
-                outline: 2px solid var(--color-primary);
-                outline-offset: 2px;
-            }
-
-            .fs-switch {
-                background-color: var(--color-background-alt);
-                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2.75' fill='white'/%3e%3c/svg%3e");
-                background-position: left center;
-                background-repeat: no-repeat;
-                border-radius: 1.25rem;
-                cursor: pointer;
-                height: 1.25rem;
-                transition-duration: 200ms;
-                transition-property: background-color, background-position;
-                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-                width: 2.5rem;
-            }
-
-            .fs-switch:checked {
-                background-color: var(--color-primary);
-                background-position: right center;
-            }
-
-            .fs-switch:focus-visible {
-                outline: 4px solid var(--color-highlight);
-                outline-offset: 0;
-            }
-
-            .fs-textarea {
-                appearance: none;
-                border-radius: 0.75rem;
-                border-width: 0;
-                box-shadow: var(--color-border-default) 0 0 0 1px inset;
-                color: var(--color-text-default);
-                font-size: 1rem;
-                line-height: 1.5rem;
-                outline: none;
-                padding: 0.5rem 0.75rem;
-                resize: vertical;
-            }
-
-            .fs-textarea:focus-visible {
-                box-shadow: var(--color-border-active) 0 0 0 1px inset;
-            }
-
-            .fs-textarea::placeholder {
-                color: var(--color-text-muted);
-            }
-
-            /** Utilities **/
-
-            .col-span-full {
-                grid-column: 1 / -1;
-            }
-
-            .fs-textarea::placeholder {
-                color: var(--color-text-muted);
-            }
-
-            .slider-label-container {
-                display: flex;
-                justify-content: space-between;
-                width: 100%;
-                margin-top: 0.25rem;
-            }
-
-            .slider-label-text {
-                font-size: 0.75rem;
-                color: var(--color-text-muted);
-                text-align: center;
-                white-space: nowrap;
-            }
-
-            /* formspree overrides */
-            /* ------------------------- */
-            /* Scope: only .fs-form      */
-            /* ------------------------- */
-            .fs-form {
-                /* match site card look */
-                background: var(--paper);
-                border: 1px solid #e8eef7;
-                border-radius: 12px;
-                padding: 18px;
-                max-width: 720px;
-                margin: 12px auto 0;
-
-                /* spacing consistent with site */
-                display: grid;
-                row-gap: 1rem;
-            }
-
-            /* ------------------------- */
-            /* Field stack + labels      */
-            /* ------------------------- */
-            .fs-field {
-                display: flex;
-                flex-direction: column;
-                row-gap: 0.5rem;
-            }
-
-            .fs-label {
-                /* classical heading font */
-                font-family: 'Cormorant Garamond', serif;
-                font-weight: 700;
-                letter-spacing: .2px;
-                color: var(--ink);
-                font-size: 1rem;
-            }
-
-            /* ------------------------- */
-            /* Inputs / textarea         */
-            /* ------------------------- */
-            .fs-input,
-            .fs-select {
-                /* pill → softer pill to match site */
-                border-radius: 10px;
-                box-shadow: none;
-                border: 1px solid #dbe3f2;
-                background: #fff;
-                color: var(--ink);
-                font: 400 1rem/1.5 'Merriweather', serif;
-                height: auto;
-                padding: 10px 12px;
-                transition: border-color .15s ease, box-shadow .15s ease;
-            }
-
-            .fs-textarea {
-                border-radius: 10px;
-                border: 1px solid #dbe3f2;
-                background: #fff;
-                color: var(--ink);
-                font: 400 1rem/1.5 'Merriweather', serif;
-                padding: 10px 12px;
-                min-height: 140px;
-                resize: vertical;
-                transition: border-color .15s ease, box-shadow .15s ease;
-            }
-
-            /* ------------------------- */
-            /* Placeholder color         */
-            /* ------------------------- */
-            .fs-input::placeholder,
-            .fs-textarea::placeholder {
-                color: #9aa3b5;
-            }
-
-            /* ------------------------- */
-            /* Focus states              */
-            /* ------------------------- */
-            .fs-input:focus,
-            .fs-textarea:focus,
-            .fs-select:focus {
-                outline: none;
-                border-color: var(--accent);
-                box-shadow: 0 0 0 3px rgba(42, 75, 141, .15);
-            }
-
-            /* ------------------------- */
-            /* Helper text               */
-            /* ------------------------- */
-            .fs-description {
-                color: var(--ink-soft);
-                font: 400 .95rem/1.4 'Merriweather', serif;
-            }
-
-            /* ------------------------- */
-            /* Button to match .btn      */
-            /* ------------------------- */
-            .fs-button {
-                background: var(--accent);
-                color: #fff;
-                border-radius: 8px;
-                font-weight: 700;
-                font-size: 1rem;
-                line-height: 1.2;
-                padding: 10px 16px;
-                cursor: pointer;
-                transition: background .15s ease;
-            }
-
-            .fs-button:hover,
-            .fs-button:focus {
-                background: #203a6d;
-            }
-
-            /* ------------------------- */
-            /* Button group alignment    */
-            /* ------------------------- */
-            .fs-button-group {
-                display: flex;
-                justify-content: flex-start;
-            }
-
-            /* ------------------------- */
-            /* Status color helpers      */
-            /* ------------------------- */
-            .fs-form.success #cf-status {
-                color: var(--success);
-            }
-
-            .fs-form.error #cf-status {
-                color: #b94b4b;
-            }
-
-            /* ------------------------- */
-            /* Small-screen padding      */
-            /* ------------------------- */
-            @media (max-width: 768px) {
-                .fs-form {
-                    padding: 16px;
-                }
-            }
-        </style>
+        <link rel="stylesheet" href="css/page.css">
         <!-- Auto Capture -->
         <script type="text/javascript">(function (f, b) {
                 if (!b.__SV) {
@@ -808,25 +81,10 @@
         <header>
             <div class="wrap">
                 <div class="nav-row">
-                    <div class="brand"> <!-- Inline SVG logo --> <svg xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 69 58" width="42" height="36" aria-hidden="true" style="flex-shrink:0;">
-                            <path
-                                d="M41.1626 35.1182C37.5212 30.6838 36.6552 24.5895 38.9169 19.3162L46.8965 0.711021L65.1807 22.9777C68.822 27.4121 69.6881 33.5064 67.4264 38.7797L59.4468 57.3849L41.1626 35.1182Z"
-                                fill="#8EC7FD" />
-                            <path
-                                d="M35.4119 27.6632L47.0731 0.474274L51.7968 23.2192C52.6196 27.1812 52.2055 31.3003 50.6105 35.0192L41.3997 56.4949L35.4119 27.6632Z"
-                                fill="#0373D0" />
-                            <path
-                                d="M22.5749 35.4886C18.9336 31.0542 18.0675 24.9599 20.3292 19.6866L28.3089 1.08141L46.5931 23.3481C50.2344 27.7825 51.1005 33.8768 48.8388 39.1501L40.8591 57.7553L22.5749 35.4886Z"
-                                fill="#008AFC" />
-                            <path
-                                d="M16.6477 28.2703L28.3089 1.08141L33.0326 23.8263C33.8554 27.7883 33.4413 31.9074 31.8463 35.6263L22.6355 57.102L16.6477 28.2703Z"
-                                fill="#0548E0" />
-                            <path
-                                d="M4.31589 35.0931C0.674564 30.6587 -0.191517 24.5644 2.07019 19.2911L10.0498 0.685937L28.334 22.9526C31.9754 27.387 32.8414 33.4813 30.5797 38.7546L22.6001 57.3598L4.31589 35.0931Z"
-                                fill="#0C55FC" />
-                        </svg> <!-- Wordmark -->
-                        <h1>Whitham Academy</h1>
+                    <div class="brand"> <img src="images/logo-whitham-academy-240x240.png" alt="Whitham Academy"
+                            class="logo">
+                        <!-- Wordmark -->
+                        <span class="logo-text">Whitham Academy</span>
                     </div> <button class="menu-btn" aria-controls="primary-nav" aria-expanded="false">Menu</button>
                     <nav aria-label="Primary">
                         <ul id="primary-nav">
@@ -843,7 +101,7 @@
         <main id="main">
             <section class="hero">
                 <div class="wrap">
-                    <h2>Classical & Waldorf-Inspired Education for K–12</h2>
+                    <h2>Classical & Waldorf-Inspired Education for K-12</h2>
                     <p>We partner with families to cultivate truth, beauty, and goodness through rigorous academics,
                         rich arts, and habit-forming practices that nourish the whole child.</p> <!--<a class="btn"
                         href="#admissions">Begin Admissions</a>-->
@@ -880,7 +138,7 @@
                     <h3>Academics & Curriculum</h3>
                     <div class="cards">
                         <article class="card">
-                            <h4 style="margin-top:0">Lower School (K–5)</h4>
+                            <h4 style="margin-top:0">Lower School (K-5)</h4>
                             <ul>
                                 <li>Foundations: phonics, copywork, mental math, form drawing</li>
                                 <li>Arts & handwork: watercolor, recorder, knitting, nature journals</li>
@@ -890,7 +148,7 @@
                             </ul>
                         </article>
                         <article class="card">
-                            <h4 style="margin-top:0">Middle School (6–8)</h4>
+                            <h4 style="margin-top:0">Middle School (6-8)</h4>
                             <ul>
                                 <li>Logic, grammar, composition, Latin</li>
                                 <li>Pre-algebra/algebra, lab-based science, biography blocks</li>
@@ -900,7 +158,7 @@
                             </ul>
                         </article>
                         <article class="card">
-                            <h4 style="margin-top:0">Upper School (9–12)</h4>
+                            <h4 style="margin-top:0">Upper School (9-12)</h4>
                             <ul>
                                 <li>Rhetoric, great books seminars, advanced mathematics</li>
                                 <li>Natural sciences with labs, history through primary sources</li>
@@ -912,31 +170,6 @@
                     </div>
                 </div>
             </section>
-            <!--<section id="admissions">
-                <div class="wrap"> <span class="kicker">Apply</span>
-                    <h3>Admissions & Enrollment</h3>
-                    <p><strong>2025–2026 priority window:</strong> Applications reviewed on a rolling basis with family
-                        interviews. Whitham Academy supports home-education in compliance with state law; guardians
-                        retain status as the primary instructor of record.</p>
-                    <dl class="facts" style="margin-top:10px">
-                        <div>
-                            <dt>Grades</dt>
-                            <dd>K–12 (combined-age lessons with guided differentiation)</dd>
-                        </div>
-                        <div>
-                            <dt>3585 Crosstrees Lane</dt>
-                            <dd>Mt. Pleasant, SC (hybrid at-home + local meet-ups & field lessons)</dd>
-                        </div>
-                        <!~~<div>
-                            <dt>Contact for Admissions</dt>
-                            <dd><a href="mailto:info@whithamacademy.org">info@whithamacademy.org</a></dd>
-                        </div>~~>
-                    </dl>
-                    <!~~<p style="margin-top:12px"> <a class="btn"
-                            href="mailto:info@whithamacademy.org?subject=Whitham%20Academy%20Admissions">Request an
-                            Admissions Call</a> </p>~~>
-                </div>
-            </section>-->
             <section id="calendar">
                 <div class="wrap"> <span class="kicker">Calendar</span>
                     <h3>Annual Rhythm</h3>
@@ -944,10 +177,10 @@
                         <article class="card">
                             <h4 style="margin-top:0">Key Dates</h4>
                             <ul>
-                                <li>First Term: Late August – October</li>
-                                <li>Second Term: November – January</li>
-                                <li>Third Term: February – April</li>
-                                <li>Fourth Term: May – June</li>
+                                <li>First Term: Late August - October</li>
+                                <li>Second Term: November - January</li>
+                                <li>Third Term: February - April</li>
+                                <li>Fourth Term: May - June</li>
                                 <li>Seasonal festivals and showcases highlight student work in the arts, design, and
                                     STEAM projects</li>
                             </ul>
@@ -955,7 +188,7 @@
                         <article class="card">
                             <h4 style="margin-top:0">Weekly Flow</h4>
                             <ul>
-                                <li>Main Lesson (Mon–Thu): Literature, History, Science, and STEAM-focused blocks</li>
+                                <li>Main Lesson (Mon-Thu): Literature, History, Science, and STEAM-focused blocks</li>
                                 <li>Integrated design labs: applying math, engineering, and arts through hands-on
                                     projects</li>
                                 <li>Friday: Classical Conversations with regional homeschool peers — a full day of
@@ -981,37 +214,17 @@
             <section id="contact">
                 <div class="wrap"> <span class="kicker">Get in Touch</span>
                     <h3>Contact</h3>
-                    <!--<form action="https://formspree.io/f/xjkeqypk" class="fs-form" target="_top" method="POST">
-                        <div class="fs-field">
-                            <label class="fs-label" for="name">Your Name</label>
-                            <input class="fs-input" id="name" name="name" required />
-                        </div>
-                        <div class="fs-field">
-                            <label class="fs-label" for="email">Email</label>
-                            <input class="fs-input" id="email" name="email" required />
-                            <p class="fs-description">
-                                This will help me respond to your query via an email.
-                            </p>
-                        </div>
-                        <div class="fs-field">
-                            <label class="fs-label" for="message">Message</label>
-                            <textarea class="fs-textarea" id="message" name="message" required></textarea>
-                            <p class="fs-description">What would you like to discuss?</p>
-                        </div>
-                        <div class="fs-button-group">
-                            <button class="fs-button" type="submit">Submit</button>
-                        </div>
-                    </form>-->
                     <form action="https://formspree.io/f/xjkeqypk" class="fs-form" method="POST" novalidate>
                         <div class="fs-field">
                             <label class="fs-label" for="name">Your Name</label>
-                            <input class="fs-input" id="name" name="name" type="text" required placeholder="Jane Doe" />
+                            <input class="fs-input" id="name" name="name" type="text" required
+                                placeholder="Enter full name" />
                         </div>
 
                         <div class="fs-field">
                             <label class="fs-label" for="email">Email</label>
                             <input class="fs-input" id="email" name="email" type="email" required
-                                placeholder="you@example.com" />
+                                placeholder="Verification required" />
                             <p class="fs-description">We’ll reply to this address.</p>
                         </div>
 
@@ -1035,16 +248,17 @@
         </main>
         <footer>
             <div class="wrap">
-                <div>© <span id="yr"></span> Whitham Academy. All rights reserved.</div>
+                <div>&copy; <span id="yr"></span> Whitham Academy. All rights reserved.</div>
                 <div class="legal">Instruction provided under a home-education model; families remain responsible for
                     compliance with applicable laws and regulations.</div>
                 <div class="legal">ID: 5ee131607921a67a9d102be6</div>
-                <a class="top" href="#main">Back to Top</a>
             </div>
         </footer>
-        <script> // Mobile nav toggle (function () { const btn = document.querySelector('.menu-btn'); const list = document.getElementById('primary-nav'); if (!btn || !list) return; btn.addEventListener('click', function () { const open = list.classList.toggle('open'); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); }); })(); // Footer year document.getElementById('yr').textContent = new Date().getFullYear(); </script>
+        <script> // Mobile nav toggle (function () { const btn = document.querySelector('.menu-btn'); const list = document.getElementById('primary-nav'); if (!btn || !list) return; btn.addEventListener('click', function () { const open = list.classList.toggle('open'); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); }); })(); // Footer year
+            document.getElementById('yr').textContent = new Date().getFullYear();
+        </script>
         <script
-            type="application/ld+json"> { "@context":"https://schema.org", "@type":"EducationalOrganization", "name":"Whitham Academy", "url":"https://whithamacademy.org", "email":"info@whithamacademy.org", "description":"Classical, Waldorf-inspired K–12 homeschool academy focused on rigorous academics, the arts, and character.", "address":{ "@type":"PostalAddress", "addressLocality":"City", "addressRegion":"ST", "addressCountry":"US" }, "sameAs":[] } </script>
+            type="application/ld+json"> { "@context":"https://schema.org", "@type":"EducationalOrganization", "name":"Whitham Academy", "url":"https://whithamacademy.org", "email":"info@whithamacademy.org", "description":"Classical, Waldorf-inspired K-12 homeschool academy focused on rigorous academics, the arts, and character.", "address":{ "@type":"PostalAddress", "addressLocality":"City", "addressRegion":"ST", "addressCountry":"US" }, "sameAs":[] } </script>
         <script>
             mixpanel.init('9c1ab0b7b3daaef8bd2a64f4fe29eb8c', {
                 record_sessions_percent: 100,
